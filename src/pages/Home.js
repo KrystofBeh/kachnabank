@@ -1,8 +1,10 @@
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 function Home(){
 
     const [data, setData] = useState("Nacita");
+    const navigate = useNavigate();
 
     fetch("http://localhost:8080/get")
         .then(res => res.text())
@@ -12,7 +14,10 @@ function Home(){
 
 
     return (
-        <h1>{data}</h1>
+        <div>
+            <button id={"CreateAcc"} onClick={() => navigate("/createAcc")}>Vytvorit acc</button>
+            <h1>{data}</h1>
+        </div>
     )
 }
 
