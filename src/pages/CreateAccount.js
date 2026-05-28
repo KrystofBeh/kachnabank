@@ -40,7 +40,7 @@ function CreateAccount() {
             </div>
             <div>
                 <label>Balanc uctu</label>
-                <input type="number" id="balanc" name="balanc"/>
+                <input type="number" id="balance" name="balance"/>
             </div>
             <button type="submit">Register</button>
         </form>
