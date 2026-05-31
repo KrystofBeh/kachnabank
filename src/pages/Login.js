@@ -1,4 +1,5 @@
 import {useNavigate} from "react-router-dom";
+import "../styles/Login.css"
 
 function Login() {
 
@@ -36,24 +37,27 @@ function Login() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>First name</label>
-                <input type="text" id="firstName" name="firstName"/>
-            </div>
-
-            <div>
-                <label>Last name</label>
-                <input type="text" id="lastName" name="lastName"/>
-            </div>
-
-            <div>
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" name="password"/>
-            </div>
-
-            <button type="submit">Submit</button>
-        </form>
+        <div id="login-container">
+            <h1 id="login-title">Přihlášení</h1>
+            <form id="login-form" onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label className="form-label">First name</label>
+                    <input className="form-input" type="text" id="firstName" name="firstName"/>
+                </div>
+                <br />
+                <div className="form-group">
+                    <label className="form-label">Last name</label>
+                    <input className="form-input" type="text" id="lastName" name="lastName"/>
+                </div>
+                <br />
+                <div className="form-group">
+                    <label className="form-label" htmlFor="password">Password</label>
+                    <input className="form-input" type="password" id="password" name="password"/>
+                </div>
+                <br />
+                <button id="btn-submit-login" type="submit">Submit</button>
+            </form>
+        </div>
     )
 }
 

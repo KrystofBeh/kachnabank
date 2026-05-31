@@ -1,15 +1,14 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
+import "../styles/AccountDetails.css"
 
 function AccountDetails(){
     const {userId, accId} = useParams();
     const [account, setAccount] = useState(null);
 
-    // Stavy pro formulář převodu
-    const [targetAccId, setTargetAccId] = useState("");
+    const [targetAccName, setTargetAccName] = useState("");
     const [amount, setAmount] = useState("");
 
-    // Funkce pro načtení detailu účtu (vytáhli jsme ji ven, abychom ji mohli volat znovu po převodu)
     async function loadAccount(){
         try {
             const response = await fetch(`http://localhost:8080/acc/${userId}/${accId}`);
@@ -27,7 +26,6 @@ function AccountDetails(){
         loadAccount();
     }, [userId, accId]);
 
-    // Funkce pro odeslání peněz
     const handleTransfer = async (e) => {
         e.preventDefault();
 
@@ -38,9 +36,9 @@ function AccountDetails(){
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    userId: userId,                // <--- TADY posíláme userId
+                    userId: userId,
                     sourceAccountId: accId,
-                    targetAccountId: targetAccId,
+                    targetAccountName: targetAccName,
                     amount: parseFloat(amount)
                 })
             });
@@ -48,7 +46,7 @@ function AccountDetails(){
             if (response.ok) {
                 const msg = await response.text();
                 alert(msg);
-                setTargetAccId("");
+                setTargetAccName("");
                 setAmount("");
                 loadAccount();
             } else {
@@ -59,31 +57,35 @@ function AccountDetails(){
         }
     };
 
-    if (!account) return <h1>Nacitani....</h1>;
+    if (!account) return <h1 id="loading-text">Nacitani....</h1>;
 
     return (
-        <div>
-            <h1>Detaily účtu</h1>
-            <p><strong>Název:</strong> {account.name}</p>
-            <p><strong>Zůstatek:</strong> {account.balance} Kč</p>
+        <div id="account-details-container">
+            <h1 className="details-title">Detaily účtu</h1>
+            <div className="account-info-box">
+                <p className="info-row"><strong>Název:</strong> <span>{account.name}</span></p>
+                <p className="info-row"><strong>Zůstatek:</strong> <span className="balance-amount">{account.balance} Kč</span></p>
+            </div>
 
-            <hr />
+            <hr className="section-divider" />
 
-            <h3>Poslat peníze</h3>
-            <form onSubmit={handleTransfer}>
-                <div>
-                    <label>ID cílového účtu: </label>
+            <h3 className="form-title">Poslat peníze</h3>
+            <form id="transfer-form" onSubmit={handleTransfer}>
+                <div className="form-group">
+                    <label className="form-label">Jméno účtu </label>
                     <input
+                        className="form-input"
                         type="text"
-                        value={targetAccId}
-                        onChange={(e) => setTargetAccId(e.target.value)}
+                        value={targetAccName}
+                        onChange={(e) => setTargetAccName(e.target.value)}
                         required
                     />
                 </div>
                 <br />
-                <div>
-                    <label>Částka: </label>
+                <div className="form-group">
+                    <label className="form-label">Částka: </label>
                     <input
+                        className="form-input"
                         type="number"
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
@@ -91,7 +93,7 @@ function AccountDetails(){
                     />
                 </div>
                 <br />
-                <button type="submit">Odeslat platbu</button>
+                <button id="btn-submit-transfer" type="submit">Odeslat platbu</button>
             </form>
         </div>
     );

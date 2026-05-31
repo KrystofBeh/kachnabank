@@ -1,4 +1,5 @@
 import {useNavigate} from "react-router-dom";
+import "../styles/CreateAccount.css"
 
 function CreateAccount() {
 
@@ -32,21 +33,25 @@ function CreateAccount() {
 
     }
 
-        return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Jmeno uctu</label>
-                <input type="text" id="accName" name="accName"/>
-            </div>
-            <div>
-                <label>Balanc uctu</label>
-                <input type="number" id="balance" name="balance"/>
-            </div>
-            <button type="submit">Register</button>
-        </form>
+    return (
+        <div id="create-account-container">
+            <h1 id="create-account-title">Vytvořit nový účet</h1>
+            <form id="create-account-form" onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label className="form-label">Jmeno uctu</label>
+                    <input className="form-input" type="text" id="accName" name="accName"/>
+                </div>
+                <br />
+                <div className="form-group">
+                    <label className="form-label">Balanc uctu</label>
+                    <input className="form-input" type="number" id="balance" name="balance"/>
+                </div>
+                <br />
+                <button id="btn-submit-account" type="submit">Register</button>
+            </form>
+        </div>
     )
 
 }
 
 export default CreateAccount;
-

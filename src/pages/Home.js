@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import "../styles/Home.css";
 
 function Home(){
 
@@ -36,18 +37,18 @@ function Home(){
     }, [userId]);
 
     return (
-        <div>
-            <button onClick={() => navigate("/createAcc")}>
+        <div id="home-container">
+            <button id="btn-create-acc" onClick={() => navigate("/createAcc")}>
                 Vytvorit acc
             </button>
 
-            <h1>{data}</h1>
+            <h1 id="home-status-title">{data}</h1>
 
-            <ul>
+            <ul id="accounts-list">
                 {accounts.map((acc) => (
-                    <li key={acc.id}>
-                        {acc.name}
-                        <button onClick={() =>  navigate(`/acc/${userId}/${acc.id}`)}>Details</button>
+                    <li key={acc.id} className="account-item">
+                        <span className="account-name">{acc.name}</span>
+                        <button className="btn-details" onClick={() =>  navigate(`/acc/${userId}/${acc.id}`)}>Details</button>
                     </li>
                 ))}
             </ul>

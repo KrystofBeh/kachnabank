@@ -1,4 +1,5 @@
 import {useNavigate} from "react-router-dom";
+import "../styles/Register.css"
 
 function Register() {
 
@@ -33,21 +34,27 @@ function Register() {
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Krestni jmeno</label>
-                <input type="text" id="name" name="firstName"/>
-            </div>
-            <div>
-                <label>Prijmeni</label>
-                <input type="text" id="name" name="lastName"/>
-            </div>
-            <div>
-                <label>Password</label>
-                <input type="password" id="password" name="password"/>
-            </div>
-            <button type="submit">Register</button>
-        </form>
+        <div id="register-container">
+            <h1 id="register-title">Registrace</h1>
+            <form id="register-form" onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label className="form-label">Krestni jmeno</label>
+                    <input className="form-input" type="text" id="name" name="firstName"/>
+                </div>
+                <br />
+                <div className="form-group">
+                    <label className="form-label">Prijmeni</label>
+                    <input className="form-input" type="text" id="name" name="lastName"/>
+                </div>
+                <br />
+                <div className="form-group">
+                    <label className="form-label">Password</label>
+                    <input className="form-input" type="password" id="password" name="password"/>
+                </div>
+                <br />
+                <button id="btn-submit-register" type="submit">Register</button>
+            </form>
+        </div>
     )
 }
 

@@ -1,0 +1,57 @@
+/* Reset a globální styly */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* Hlavní navigační lišta */
+#main-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a2530; /* Tmavé korporátní pozadí ladící k modré */
+    padding: 15px 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Volitelný nápis/logo na levé straně */
+.navbar-brand-placeholder {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Kontejner pro odkazy */
+.nav-links-container {
+    display: flex;
+    gap: 20px;
+}
+
+/* Jednotlivé odkazy v menu */
+.nav-link-item {
+    color: #cbd5e0;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+/* Hover efekt pro odkazy */
+.nav-link-item:hover {
+    color: #ffffff;
+    background-color: #2d3748;
+}
+
+/* Aktivní vzhled odkazu při kliknutí (volitelný) */
+.nav-link-item:active {
+    background-color: #2b6cb0;
+}

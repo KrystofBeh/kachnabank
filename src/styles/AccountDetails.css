@@ -1,0 +1,117 @@
+/* Načítací text */
+#loading-text {
+    text-align: center;
+    margin-top: 50px;
+    color: #4a5568;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Hlavní kontejner */
+#account-details-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Nadpisy */
+.details-title, .form-title {
+    color: #1a2530;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.form-title {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+/* Box s informacemi o účtu */
+.account-info-box {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.info-row {
+    margin: 10px 0;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    color: #4a5568;
+}
+
+.balance-amount {
+    font-weight: 700;
+    color: #2b6cb0; /* Modrá barva zvýrazňující zůstatek */
+    font-size: 18px;
+}
+
+/* Oddělovací čára */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: #edf2f7;
+    margin: 25px 0;
+}
+
+/* Formulářové prvky */
+#transfer-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.form-input {
+    padding: 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #2b6cb0;
+    box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.15);
+}
+
+/* Tlačítko odeslání */
+#btn-submit-transfer {
+    width: 100%;
+    padding: 14px;
+    background-color: #2b6cb0;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+#btn-submit-transfer:hover {
+    background-color: #2c5282;
+}
+
+#btn-submit-transfer:active {
+    transform: scale(0.98);
+}
